@@ -1,0 +1,28 @@
+import random
+from tkinter import *
+
+win = Tk()
+
+win.geometry("500x500")
+
+win.title("random number")
+
+win.option_add("*Font", "맑은고딕 24")
+
+result_label = Label(win, text="random number: ")
+result_label.pack(pady=20)
+
+btn = Button(win)
+btn.config(width=5, height=5)
+
+btn.config(text="random number")
+
+def alert():
+    numbers = random.sample(range(1, 100), 10)
+    result_label.config(text="random number: " + ", ".join(map(str, numbers)))
+
+btn.config(command=alert)
+
+btn.pack()
+
+win.mainloop()
